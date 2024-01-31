@@ -1,17 +1,18 @@
 const selection = ["rock","paper","scissors"]
-let computerScore = 0;
-let playerScore = 0;
 
+// function to get a random selection for computer
 function getComputerChoice() {
     const computerSelection = selection[Math.floor(Math.random()*selection.length)];
     return computerSelection;
 }
+// function to get selection from user, converted to lower-case for case insensitivity 
 function getPlayerSelection() {
     const playerSelection = prompt("Rock, Paper of Scissors?").toLowerCase();
     return playerSelection;
 }
 
 function playRound(playerSelection, computerSelection){
+    // play one round of game
     if (playerSelection === computerSelection){
         alert("It's a tie");
         return "It's a tie";
@@ -42,6 +43,10 @@ function playRound(playerSelection, computerSelection){
      }
 }
 function playGame(){
+    // keep score
+    let computerScore = 0;
+    let playerScore = 0;
+    // loop for a five round game
     for (let i = 0; i < 5; i++){
         const playerSelection = getPlayerSelection();
         const computerSelection = getComputerChoice();
@@ -49,6 +54,7 @@ function playGame(){
     }
     console.log(playerScore);
     console.log(computerScore);
+    // shows the final winner
     if (playerScore < computerScore){
         alert(`You Lose :(  Your score: ${playerScore}`);
         let result = `You Lose! :( Your score: ${playerScore}`;
@@ -59,5 +65,5 @@ function playGame(){
     return result;
 }
 
-playGame();
+// gameplay
 console.log(playGame());
