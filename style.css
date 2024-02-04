@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    width: 600px;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    /*margin-left: 10vw;
+    margin-right: 10vw;*/
+}
+.computerCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 10px solid pink;
+    border-radius: 25px;
+}
+.computerInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.playerCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 10px solid pink;
+    border-radius: 25px;
+}
+.playerInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+button.choice {
+    border: none;
+    
+}
+*{
+    border: 2px solid black;
+}
+
+input.choice {
+    width: 120px;
+    height: auto;
+    transition: .1s ease;
+}
+
+input.choice:hover{
+    opacity: 65%;
+}
+
+.avatar {
+    width: 120px;
+    height: auto;
+    padding: 10px;
+}
