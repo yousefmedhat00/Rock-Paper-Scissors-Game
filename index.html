@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors Game</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
+    </style>
 </head>
 <script src=></script>
 <body>
+<main>
     <div class="container">
-        <div class="computerCard">
+        <div class="card" id="computerCard">
             <img src="./images/cat2.png" class="avatar">
             <div class="computerInfo">
                 <div class="text">
@@ -25,7 +29,7 @@
             <input type="image" id="paper" class="choice" src="./images/paper.png">
             <input type="image" id="scissors" class="choice" src="./images/scissors.png">
         </div>
-        <div class="playerCard">
+        <div class="card" id="playerCard">
             <img src="./images/cat1.png" class="avatar">
             <div class="playerInfo">
                 <div class="text">
@@ -37,5 +41,6 @@
             </div>
         </div>
     </div>
+</main>
 </body>
 </html>
