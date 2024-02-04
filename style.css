@@ -1,9 +1,29 @@
+
+
+body {
+    font-family: 'Tektur', sans-serif;
+    font-size: 18px;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100vh;
+}
+
+
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    height: 100vh;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 100%;
     width: 600px;
+    border: 10px solid pink;
+    border-radius: 50px;
+    box-sizing: border-box;
+
 }
 
 .choices {
@@ -13,11 +33,12 @@
     /*margin-left: 10vw;
     margin-right: 10vw;*/
 }
-.computerCard {
+.card {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 10px solid pink;
+    margin: 20px 20px;
+    border: 7px solid pink;
     border-radius: 25px;
 }
 .computerInfo{
@@ -25,13 +46,7 @@
     flex-direction: column;
     justify-content: space-around;
 }
-.playerCard {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border: 10px solid pink;
-    border-radius: 25px;
-}
+
 .playerInfo{
     display: flex;
     flex-direction: column;
@@ -42,7 +57,7 @@ button.choice {
     border: none;
     
 }
-*{
+{
     border: 2px solid black;
 }
 
