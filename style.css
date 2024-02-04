@@ -23,6 +23,7 @@ main {
     border: 10px solid pink;
     border-radius: 50px;
     box-sizing: border-box;
+    background-color: rgb(255, 220, 225);
 
 }
 
@@ -36,43 +37,48 @@ main {
 .card {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: left;
     margin: 20px 20px;
     border: 7px solid pink;
     border-radius: 25px;
-}
-.computerInfo{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    background-color: rgb(255, 220, 225);
 }
 
-.playerInfo{
+.info{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    padding-left: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.text {
+    margin: 10px 0;
+    font-size: 20px;
 }
 
-button.choice {
-    border: none;
-    
-}
-{
-    border: 2px solid black;
-}
+
 
 input.choice {
     width: 120px;
     height: auto;
-    transition: .1s ease;
+    transition: .3s ease;
 }
 
 input.choice:hover{
-    opacity: 65%;
+    opacity: 55%;
+    transform: scale(1.1);
 }
 
 .avatar {
     width: 120px;
     height: auto;
     padding: 10px;
+    background-color: pink;
+   
+}
+
+.game {
+    font-size: 36px;
+    text-align: center;
 }
