@@ -1,4 +1,26 @@
+
 const selection = ["rock","paper","scissors"]
+
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+const result = document.querySelector("#result");
+const playerScoreCard = document.querySelector("#playerScore");
+const computerScoreCard = document.querySelector("#computerScore");
+
+
+let playerScore = 0;
+let computerScore = 0;
+
+rockBtn.addEventListener('click', () => {
+    let computerSelection = getComputerChoice();
+    result.textContent = playRound("rock", computerSelection);
+    if (computerSelection === "scissors") {
+        playerScore += 1;
+        playerScoreCard.textContent = `Your Score: ${playerScore}`;
+    }
+}
+)
 
 // function to get a random selection for computer
 function getComputerChoice() {
@@ -14,31 +36,18 @@ function getPlayerSelection() {
 function playRound(playerSelection, computerSelection){
     // play one round of game
     if (playerSelection === computerSelection){
-        alert("It's a tie");
         return "It's a tie";
      } else if(computerSelection === "rock" && playerSelection === "scissors") {
-        alert("You lose! Rock beats Scissors");
-        computerScore++;
         return "You lose! Rock beats Scissors";
      } else if(computerSelection === "rock" && playerSelection === "paper"){
-        alert("You win! Paper beats Rock");
-        playerScore++
         return "You win! Paper beats Rock";
      } else if(computerSelection === "scissors" && playerSelection === "paper"){
-        alert("You lose! Scissors beat Paper");
-        computerScore++;
         return "You lose! Scissors beat Paper";
      } else if(computerSelection === "scissors" && playerSelection === "rock"){
-        alert("You win! Rock beats Scissors");
-        playerScore++;
         return "You win! Rock beats Scissors";
      } else if(computerSelection === "paper" && playerSelection === "rock"){
-        alert("You lose! Paper beats Rock");
-        computerScore++;
         return "You lose! Paper beats Rock";
      } else {
-        alert("You win! Scissors bears Paper");
-        playerScore++;
         return "You win! Scissors bears Paper";
      }
 }
@@ -66,4 +75,3 @@ function playGame(){
 }
 
 // gameplay
-console.log(playGame());
