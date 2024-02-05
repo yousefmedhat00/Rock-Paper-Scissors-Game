@@ -10,16 +10,12 @@ body {
 
 main {
     height: 100vh;
-    visibility: visible;
-}
-
-main.hidden {
-    visibility: hidden;
 }
 
 .container {
     display: flex;
     flex-direction: column;
+    visibility: visible;
     justify-content: space-between;
     margin: 0 auto;
     height: 100%;
@@ -28,6 +24,10 @@ main.hidden {
     border-radius: 50px;
     box-sizing: border-box;
     background-color: rgb(255, 220, 225);
+}
+
+.container.hidden {
+    visibility: hidden;
 }
 
 .choices {
@@ -58,6 +58,7 @@ main.hidden {
 .text {
     margin: 10px 0;
     font-size: 20px;
+    color: rgb(49, 45, 40);
 }
 
 input.choice {
@@ -115,13 +116,11 @@ input.choice:hover{
 h1 {
     margin: 0;
     border: 5px solid pink;
-    padding: 10px;
-    width: auto;
     border-radius: 15px;
-    color: rgb(49, 45, 40);
+    padding: 10px;
 }
 
-h2 {
+h1, h2 {
     color: rgb(49, 45, 40);
 }
 
