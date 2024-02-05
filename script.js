@@ -9,6 +9,7 @@ const playerScoreCard = document.querySelector("#playerScore");
 const computerScoreCard = document.querySelector("#computerScore");
 const playerChoiceCard = document.querySelector("#playerChoice");
 const computerChoiceCard = document.querySelector("#computerChoice");
+const main = document.querySelector("main");
 
 const overlay = document.createElement("div");
 overlay.classList.add("overlay");
@@ -19,6 +20,41 @@ const overlayHeadText = document.createElement("h1");
 const overlayHead2Text = document.createElement("h2");
 const startBtn = document.createElement("button");
 
+overlayCard.classList.add("overlay-card");
+overlayHeading.classList.add("overlay-heading");
+overlayHeading2.classList.add("overlay-heading2");
+startBtn.classList.add("start-button");
+overlayHeading.append(overlayHeadText);
+overlayHeading2.append(overlayHead2Text);
+overlayCard.append(overlayHeading, overlayHeading2, startBtn);
+overlay.append(overlayCard);
+document.body.appendChild(overlay);
+
+const title = "ROCK, PAPER, SCISSORS GAME";
+const subtitle = "Can you get five points first?";
+
+document.addEventListener('DOMContentLoaded', () => {
+toggleText(title,subtitle)});
+
+startBtn.addEventListener('click', start)
+
+function start(){
+    toggleOverlay();
+    playerScore = 0;
+    computerScore = 0;
+}
+
+function toggleOverlay(){
+    overlay.classList.toggle('visible');
+    main.classList.toggle('hidden');
+}
+
+function toggleText(header = '', content = '', start = 'Play'){
+    overlayHeadText.textContent = header;
+    overlayHead2Text.textContent = content;
+    startBtn.textContent = start;
+    toggleOverlay();
+}
 
 let playerScore = 0;
 let computerScore = 0;
@@ -34,7 +70,12 @@ rockBtn.addEventListener('click', () => {
     } else if (computerSelection === "paper"){
         computerScore += 1;
         computerScoreCard.textContent = `Computer's Score: ${computerScore}`;
-    }
+    };
+    checkScore();
+    if (finishGame == true){
+        gameFinish();
+    };
+
 });
 
 paperBtn.addEventListener('click', () => {
@@ -48,7 +89,12 @@ paperBtn.addEventListener('click', () => {
     } else if (computerSelection === "scissors"){
         computerScore += 1;
         computerScoreCard.textContent = `Computer's Score: ${computerScore}`;
-    }
+    };
+    checkScore();
+    if (finishGame == true){
+        gameFinish();
+    };
+
 });
 
 scissorsBtn.addEventListener('click', () => {
@@ -62,7 +108,11 @@ scissorsBtn.addEventListener('click', () => {
     } else if (computerSelection === "rock"){
         computerScore += 1;
         computerScoreCard.textContent = `Computer's Score: ${computerScore}`;
-    }
+    };
+    checkScore();
+    if (finishGame == true){
+        gameFinish();
+    };
 });
 
 // function to get a random selection for computer
@@ -71,8 +121,17 @@ function getComputerChoice() {
     return computerSelection;
 }
 
+function checkScore(){
+    if (playerScore === 5 || computerScore === 5) { 
+        finishGame = true;
+    } else {
+        finishGame = false;
+    };
+    return finishGame;
+};
+
+// play one round of game
 function playRound(playerSelection, computerSelection){
-    // play one round of game
     if (playerSelection === computerSelection){
         return "It's a tie";
      } else if(computerSelection === "rock" && playerSelection === "scissors") {
@@ -87,20 +146,35 @@ function playRound(playerSelection, computerSelection){
         return "You lose! Paper beats Rock";
      } else {
         return "You win! Scissors bears Paper";
-     }
+     };
 };
 
-function checkScore(playerScore, computerScore){
-    if (playerScore === 5 || computerScore === 5) { 
-        if (playerScore > computerScore) {
-
-        } else {
-
-        };
-    } else {
-
+function gameFinish(){
+    let title = '';
+    let subtitle = '';
+    if (finishGame == true && playerScore > computerScore){
+        title = "You won!";
+        subtitle = "Do you want to play again?"
+        gameReset();
+        toggleText(title, subtitle, "Play Again")
+    } else if (finishGame == true && playerScore < computerScore) {
+        title = "You Lose :(";
+        subtitle = "Do you want to play again?"
+        gameReset();
+        toggleText(title, subtitle, "Play Again")
     };
-};
+    
+    
+}
+
+function gameReset(){
+    computerScore = 0;
+    playerScore = 0;
+    playerScoreCard.textContent = `Your Score: ${playerScore}`;
+    computerScoreCard.textContent = `Computer's Score: ${computerScore}`;
+    finishGame = false;
+
+}
 
 function playGame(){
     // keep score
