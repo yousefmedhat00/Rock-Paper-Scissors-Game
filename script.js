@@ -10,7 +10,7 @@ const computerScoreCard = document.querySelector("#computerScore");
 const playerChoiceCard = document.querySelector("#playerChoice");
 const computerChoiceCard = document.querySelector("#computerChoice");
 const main = document.querySelector("main");
-
+/*              Overlay Element Creation        */
 const overlay = document.createElement("div");
 overlay.classList.add("overlay");
 const overlayCard = document.createElement("div");
@@ -19,7 +19,7 @@ const overlayHeading2 = document.createElement("div");
 const overlayHeadText = document.createElement("h1");
 const overlayHead2Text = document.createElement("h2");
 const startBtn = document.createElement("button");
-
+/*              Overlay Element Classes and Insertion        */
 overlayCard.classList.add("overlay-card");
 overlayHeading.classList.add("overlay-heading");
 overlayHeading2.classList.add("overlay-heading2");
@@ -32,10 +32,11 @@ document.body.appendChild(overlay);
 
 const title = "ROCK, PAPER, SCISSORS GAME";
 const subtitle = "Can you get five points first?";
-
+/*            Show overlay to play game         */
 document.addEventListener('DOMContentLoaded', () => {
 toggleText(title,subtitle)});
 
+/*                  Game play                   */
 startBtn.addEventListener('click', start)
 
 function start(){
@@ -43,12 +44,12 @@ function start(){
     playerScore = 0;
     computerScore = 0;
 }
-
+/*             Show and hide overlay           */
 function toggleOverlay(){
     overlay.classList.toggle('visible');
     main.classList.toggle('hidden');
 }
-
+/*            Overlay content creation         */
 function toggleText(header = '', content = '', start = 'Play'){
     overlayHeadText.textContent = header;
     overlayHead2Text.textContent = content;
@@ -58,7 +59,7 @@ function toggleText(header = '', content = '', start = 'Play'){
 
 let playerScore = 0;
 let computerScore = 0;
-
+/*           When player selects Rock         */
 rockBtn.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
     playerChoiceCard.textContent = "Your Choice: ROCK";
@@ -77,7 +78,7 @@ rockBtn.addEventListener('click', () => {
     };
 
 });
-
+/*           When player selects Paper         */
 paperBtn.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
     playerChoiceCard.textContent = "Your Choice: PAPER";
@@ -96,7 +97,7 @@ paperBtn.addEventListener('click', () => {
     };
 
 });
-
+/*           When player selects Scissors         */
 scissorsBtn.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
     playerChoiceCard.textContent = "Your Choice: SCISSORS";
@@ -115,12 +116,12 @@ scissorsBtn.addEventListener('click', () => {
     };
 });
 
-// function to get a random selection for computer
+/*    Function to get a random selection for computer.    */
 function getComputerChoice() {
     const computerSelection = selection[Math.floor(Math.random()*selection.length)];
     return computerSelection;
 }
-
+/*    Function that checks if either player got to five points.   */
 function checkScore(){
     if (playerScore === 5 || computerScore === 5) { 
         finishGame = true;
@@ -130,7 +131,7 @@ function checkScore(){
     return finishGame;
 };
 
-// play one round of game
+/*  Function that plays one round of the game and returns string.  */
 function playRound(playerSelection, computerSelection){
     if (playerSelection === computerSelection){
         return "It's a tie";
@@ -148,7 +149,7 @@ function playRound(playerSelection, computerSelection){
         return "You win! Scissors bears Paper";
      };
 };
-
+/* Function to check if game has finished and toggles play again screen. */
 function gameFinish(){
     let title = '';
     let subtitle = '';
@@ -165,8 +166,8 @@ function gameFinish(){
     };
     
     
-}
-
+};
+/* Function that resets the game and scores */
 function gameReset(){
     computerScore = 0;
     playerScore = 0;
@@ -174,29 +175,6 @@ function gameReset(){
     computerScoreCard.textContent = `Computer's Score: ${computerScore}`;
     finishGame = false;
 
-}
-
-function playGame(){
-    // keep score
-    let computerScore = 0;
-    let playerScore = 0;
-    // loop for a five round game
-    for (let i = 0; i < 5; i++){
-        const playerSelection = getPlayerSelection();
-        const computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-    }
-    console.log(playerScore);
-    console.log(computerScore);
-    // shows the final winner
-    if (playerScore < computerScore){
-        alert(`You Lose :(  Your score: ${playerScore}`);
-        let result = `You Lose! :( Your score: ${playerScore}`;
-    } else {
-        alert(`You Win! :)  Your score: ${playerScore}`);
-        let result = `You win! :)  Your score: ${playerScore}`;
-    }
-    return result;
-}
+};
 
 // gameplay
