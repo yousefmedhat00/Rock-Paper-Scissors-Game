@@ -9,22 +9,22 @@
         @import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
     </style>
 </head>
-<script src=></script>
 <body>
 <main>
     <div class="container">
         <div class="card" id="computerCard">
             <img src="./images/cat2.png" class="avatar">
             <div class="info" id="computerInfo">
-                <div class="text">
+                <div class="text" id="computerChoice">
                     Computer's Choice: 
                 </div>
-                <div class="text">     
-                    Computer's Score:           
+                <div class="text" id="computerScore">     
+                    Computer's Score: 0          
                 </div>
             </div>
         </div>
         <div class="game">
+            First to 5 points, wins! <br>
             Select your choice:
         </div>
         <div class="choices">
@@ -32,22 +32,22 @@
             <input type="image" id="paper" class="choice" src="./images/paper.png">
             <input type="image" id="scissors" class="choice" src="./images/scissors.png">
         </div>
-        <div class="game">
+        <div class="game" id="result">
             Good Luck!
         </div>
         <div class="card" id="playerCard">
             <img src="./images/cat1.png" class="avatar">
             <div class="info" id="playerInfo">
-                <div class="text">
+                <div class="text" id="playerChoice">
                     Your Choice:
                 </div>
-                <div class="text">
-                    Your Score:
-                </div>
-                
+                <div class="text" id="playerScore">
+                    Your Score: 0
+                </div>              
             </div>
         </div>
     </div>
+    <script src=script.js></script>
 </main>
 </body>
 </html>
