@@ -9,7 +9,9 @@ const playerScoreCard = document.querySelector("#playerScore");
 const computerScoreCard = document.querySelector("#computerScore");
 const playerChoiceCard = document.querySelector("#playerChoice");
 const computerChoiceCard = document.querySelector("#computerChoice");
-const main = document.querySelector("main");
+const main = document.querySelector("#main");
+const container = document.querySelector(".container");
+
 /*              Overlay Element Creation        */
 const overlay = document.createElement("div");
 overlay.classList.add("overlay");
@@ -19,6 +21,7 @@ const overlayHeading2 = document.createElement("div");
 const overlayHeadText = document.createElement("h1");
 const overlayHead2Text = document.createElement("h2");
 const startBtn = document.createElement("button");
+
 /*              Overlay Element Classes and Insertion        */
 overlayCard.classList.add("overlay-card");
 overlayHeading.classList.add("overlay-heading");
@@ -32,6 +35,7 @@ document.body.appendChild(overlay);
 
 const title = "ROCK, PAPER, SCISSORS GAME";
 const subtitle = "Can you get five points first?";
+
 /*            Show overlay to play game         */
 document.addEventListener('DOMContentLoaded', () => {
 toggleText(title,subtitle)});
@@ -43,12 +47,14 @@ function start(){
     toggleOverlay();
     playerScore = 0;
     computerScore = 0;
-}
+};
+
 /*             Show and hide overlay           */
 function toggleOverlay(){
     overlay.classList.toggle('visible');
-    main.classList.toggle('hidden');
-}
+    container.classList.toggle('hidden');
+};
+
 /*            Overlay content creation         */
 function toggleText(header = '', content = '', start = 'Play'){
     overlayHeadText.textContent = header;
@@ -72,12 +78,14 @@ rockBtn.addEventListener('click', () => {
         computerScore += 1;
         computerScoreCard.textContent = `Computer's Score: ${computerScore}`;
     };
-    checkScore();
-    if (finishGame == true){
-        gameFinish();
-    };
-
+    setTimeout(() => {
+        checkScore();
+        if (finishGame == true){
+            gameFinish();
+        };
+    }, 1200);
 });
+
 /*           When player selects Paper         */
 paperBtn.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
@@ -91,12 +99,14 @@ paperBtn.addEventListener('click', () => {
         computerScore += 1;
         computerScoreCard.textContent = `Computer's Score: ${computerScore}`;
     };
-    checkScore();
-    if (finishGame == true){
-        gameFinish();
-    };
-
+    setTimeout(() => {
+        checkScore();
+        if (finishGame == true){
+            gameFinish();
+        };
+    }, 1200);
 });
+
 /*           When player selects Scissors         */
 scissorsBtn.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
@@ -110,10 +120,12 @@ scissorsBtn.addEventListener('click', () => {
         computerScore += 1;
         computerScoreCard.textContent = `Computer's Score: ${computerScore}`;
     };
-    checkScore();
-    if (finishGame == true){
-        gameFinish();
-    };
+    setTimeout(() => {
+        checkScore();
+        if (finishGame == true){
+            gameFinish();
+        };
+    }, 1200);
 });
 
 /*    Function to get a random selection for computer.    */
@@ -167,7 +179,7 @@ function gameFinish(){
     
     
 };
-/* Function that resets the game and scores */
+/* Function that resets the game and scores. */
 function gameReset(){
     computerScore = 0;
     playerScore = 0;
