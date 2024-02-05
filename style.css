@@ -10,8 +10,12 @@ body {
 
 main {
     height: 100vh;
+    visibility: visible;
 }
 
+main.hidden {
+    visibility: hidden;
+}
 
 .container {
     display: flex;
@@ -24,16 +28,14 @@ main {
     border-radius: 50px;
     box-sizing: border-box;
     background-color: rgb(255, 220, 225);
-
 }
 
 .choices {
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    /*margin-left: 10vw;
-    margin-right: 10vw;*/
 }
+
 .card {
     display: flex;
     flex-direction: row;
@@ -52,12 +54,11 @@ main {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
 .text {
     margin: 10px 0;
     font-size: 20px;
 }
-
-
 
 input.choice {
     width: 120px;
@@ -75,10 +76,68 @@ input.choice:hover{
     height: auto;
     padding: 10px;
     background-color: pink;
-   
 }
 
 .game {
     font-size: 36px;
     text-align: center;
+}
+
+.overlay {
+    background-color: pink;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.overlay.visible {
+    visibility: visible;
+}
+
+.overlay-card {
+    width: auto;
+    background-color: rgb(255, 220, 225);
+    display: flex;
+    justify-content: center;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 25px;
+}
+
+h1 {
+    margin: 0;
+    border: 5px solid pink;
+    padding: 10px;
+    width: auto;
+    border-radius: 15px;
+    color: rgb(49, 45, 40);
+}
+
+h2 {
+    color: rgb(49, 45, 40);
+}
+
+button.start-button {
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Tektur';
+    font-size: 24px;
+    font-weight: bold;
+    background-color: pink;
+    border: 5px solid pink;
+    border-radius: 15px;
+    padding: 5px;
+    color: rgb(49, 45, 40);
+}
+
+button.start-button:hover {
+ background-color: rgb(255, 220, 225);
 }
